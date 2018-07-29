@@ -35,7 +35,8 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['single'],
+            'tap' => [AwesomePeople\LaravelLogEnhancer\LogEnhancer::class],
+            'channels' => ['daily', 'slack'],
         ],
 
         'single' => [
