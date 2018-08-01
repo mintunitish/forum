@@ -16,9 +16,11 @@ install:
 before_script:
    - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
    - php artisan serve &
+   - php artisan migrate:refresh &
 
 script:
   - mkdir -p build/logs
+  - php artisan config:clear
   - php artisan dusk
   - php vendor/bin/phpunit -c phpunit.xml
 
