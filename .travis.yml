@@ -19,6 +19,7 @@ before_script:
 
 script:
   - mkdir -p build/logs
+  - php artisan migrate:fresh
   - php vendor/bin/phpunit -c phpunit.xml
   - php artisan dusk
 
