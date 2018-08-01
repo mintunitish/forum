@@ -5,9 +5,24 @@ php:
   - 7.1
   - 7.2
 
+sudo: required
+dist: trusty
+
+addons:
+   chrome: stable
+
+install:
+   - cp .env.testing .env
+   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
+
+before_script:
+   - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+   - php artisan serve &
+
 script:
   - mkdir -p build/logs
   - php vendor/bin/phpunit -c phpunit.xml
+  - php artisan dusk
 
 after_script:
   - php vendor/bin/coveralls -v
