@@ -20,8 +20,8 @@ before_script:
 script:
   - mkdir -p build/logs
   - php artisan migrate:fresh
-  - php vendor/bin/phpunit -c phpunit.xml
   - php artisan dusk
+  - php vendor/bin/phpunit -c phpunit.xml
 
 after_script:
   - php vendor/bin/coveralls -v
