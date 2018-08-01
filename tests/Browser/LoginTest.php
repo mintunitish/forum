@@ -9,6 +9,18 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class LoginTest extends DuskTestCase
 {
+
+    public function test_non_registered_users_can_not_log_in()
+    {
+        $this->browse(function ($browser) {
+            $browser->visit('/login')
+                ->type('email', 'some@random.guy')
+                ->type('password', 'secret')
+                ->press('Login')
+                ->assertPathIs('/login');
+        });
+    }
+
     /**
      * @throws \Throwable
      */
@@ -24,17 +36,6 @@ class LoginTest extends DuskTestCase
                 ->type('password', 'secret')
                 ->press('Login')
                 ->assertPathIs('/home');
-        });
-    }
-
-    public function test_non_registered_users_can_not_log_in()
-    {
-        $this->browse(function ($browser) {
-            $browser->visit('/login')
-                ->type('email', 'some@random.guy')
-                ->type('password', 'secret')
-                ->press('Login')
-                ->assertPathIs('/login');
         });
     }
 
