@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c4ad46d6787d2c60d95e5ba24cddd31e",
+    "content-hash": "a4c22e9944938efb21f98dbf90d6369c",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -741,16 +741,16 @@
         },
         {
             "name": "mintunitish/laravel-log-enhancer",
-            "version": "1.1.2",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mintunitish/log-enhancer.git",
-                "reference": "e6785c90f5c7b134fbd5808ac559cae1387921ec"
+                "reference": "ab9df785c5bc1448377b4556cc4f4c1134a448d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mintunitish/log-enhancer/zipball/e6785c90f5c7b134fbd5808ac559cae1387921ec",
-                "reference": "e6785c90f5c7b134fbd5808ac559cae1387921ec",
+                "url": "https://api.github.com/repos/mintunitish/log-enhancer/zipball/ab9df785c5bc1448377b4556cc4f4c1134a448d5",
+                "reference": "ab9df785c5bc1448377b4556cc4f4c1134a448d5",
                 "shasum": ""
             },
             "require": {
@@ -787,7 +787,7 @@
                 }
             ],
             "description": "Adds more data to logs for easy debugging.",
-            "time": "2018-07-29T16:19:08+00:00"
+            "time": "2018-07-29T20:31:36+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -2291,16 +2291,16 @@
         },
         {
             "name": "vlucas/phpdotenv",
-            "version": "v2.5.0",
+            "version": "v2.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/phpdotenv.git",
-                "reference": "6ae3e2e6494bb5e58c2decadafc3de7f1453f70a"
+                "reference": "8abb4f9aa89ddea9d52112c65bbe8d0125e2fa8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/6ae3e2e6494bb5e58c2decadafc3de7f1453f70a",
-                "reference": "6ae3e2e6494bb5e58c2decadafc3de7f1453f70a",
+                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/8abb4f9aa89ddea9d52112c65bbe8d0125e2fa8e",
+                "reference": "8abb4f9aa89ddea9d52112c65bbe8d0125e2fa8e",
                 "shasum": ""
             },
             "require": {
@@ -2337,7 +2337,7 @@
                 "env",
                 "environment"
             ],
-            "time": "2018-07-01T10:25:50+00:00"
+            "time": "2018-07-29T20:33:41+00:00"
         }
     ],
     "packages-dev": [
@@ -4163,7 +4163,7 @@
     "prefer-lowest": false,
     "platform": {
         "php": "^7.1.3",
-        "ext-simplexml": "^7.2"
+        "ext-simplexml": "^7.1"
     },
     "platform-dev": []
 }
