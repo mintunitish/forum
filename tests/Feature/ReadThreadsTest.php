@@ -8,13 +8,10 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\TestCase;
 
 class ReadThreadsTest extends TestCase
 {
-    use DatabaseMigrations;
-
     protected $thread;
 
     public function setUp()

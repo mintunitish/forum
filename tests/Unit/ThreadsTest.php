@@ -8,14 +8,10 @@
 
 namespace Tests\Unit;
 
-
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\TestCase;
 
 class ThreadsTest extends TestCase
 {
-    use DatabaseMigrations;
-
     protected $thread;
 
     function setUp()
