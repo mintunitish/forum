@@ -8,8 +8,9 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class LoginTest extends DuskTestCase
 {
-    use DatabaseMigrations;
-
+    /**
+     * @throws \Throwable
+     */
     public function test_non_registered_users_can_not_log_in()
     {
         $this->browse(function ($browser) {
