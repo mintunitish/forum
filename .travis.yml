@@ -8,6 +8,12 @@ dist: trusty
 
 addons:
    chrome: stable
+   
+services:
+   - mysql
+
+before_install:
+   - mysql -e 'CREATE DATABASE testing'
 
 install:
    - cp .env.testing .env
@@ -15,11 +21,12 @@ install:
 
 before_script:
    - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+   - php artisan key:generate
+   - php artisan migrate --no-interaction -vvv
    - php artisan serve &
 
 script:
   - mkdir -p build/logs
-  - php artisan migrate
   - php artisan dusk
   - php vendor/bin/phpunit -c phpunit.xml
 
