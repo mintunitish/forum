@@ -31,3 +31,7 @@ script:
 
 after_script:
   - php vendor/bin/coveralls -v
+
+after_failure:
+  - php artisan email:failure
+
