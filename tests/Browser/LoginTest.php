@@ -2,13 +2,13 @@
 
 namespace Tests\Browser;
 
-use App\User;
 use Tests\DuskTestCase;
 use Laravel\Dusk\Chrome;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class LoginTest extends DuskTestCase
 {
+    use DatabaseMigrations;
 
     public function test_non_registered_users_can_not_log_in()
     {
@@ -26,8 +26,8 @@ class LoginTest extends DuskTestCase
      */
     public function test_a_registered_user_can_log_in()
     {
-        $user = factory(User::class)->create([
-            'email' => 'tmastas@jasmdfn.com',
+        $user = factory('App\User')->create([
+            'email' => 'tmastsas@jasmdfn.com',
         ]);
 
         $this->browse(function ($browser) use ($user) {
