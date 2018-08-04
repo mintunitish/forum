@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
+    <div class="container-fluid">
+        <div class="row">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
@@ -15,30 +15,40 @@
                         {{ $thread->body }}
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row justify-content-center" style="margin-top: 15px;">
-            <div class="col-md-8 col-md-offset-2">
-                @foreach($thread->replies as $reply)
+
+                @foreach($replies as $reply)
                     @include('threads.reply')
                 @endforeach
-            </div>
-        </div>
 
-        @guest
-            <p class="text-center">Please <a href="{{ route('login') }}">SignIn</a> to participate in this discussion!</p>
-        @else
-            <div class="row justify-content-center" style="margin-top: 15px;">
-                <div class="col-md-8 col-md-offset-2">
+                {{ $replies->links() }}
+
+                @guest
+                    <p class="text-center">Please <a href="{{ route('login') }}">SignIn</a> to participate in this discussion!
+                    </p>
+                @else
                     <form method="post" action="{{ $thread->path().'/replies' }}">
                         {{ csrf_field() }}
                         <div class="form-group">
-                            <textarea name="body" id="body" class="form-control" placeholder="Have Something to Say?" rows="5"></textarea>
+                    <textarea name="body" id="body" class="form-control" placeholder="Have Something to Say?"
+                              rows="3"></textarea>
                         </div>
                         <button type="submit" class="btn btn-default">Post</button>
                     </form>
+                @endguest
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <p>
+                            This thread was published {{ $thread->created_at->diffForHumans() }} by
+                            <a href="#">
+                                {{ $thread->owner->name }}
+                            </a>, and currently has {{ $thread->replies_count }} {{ str_plural('comment', $thread->replies_count) }}
+                        </p>
+                    </div>
                 </div>
             </div>
-        @endguest
+        </div>
+
     </div>
 @endsection

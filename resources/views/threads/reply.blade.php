@@ -1,4 +1,4 @@
-<div class="card" style="margin-bottom: 10px;">
+<div class="card mb-3" style="margin-top: 10px;">
     <div class="card-header">
         <a href="#">
             <i>{{ $reply->owner->name }}</i>
