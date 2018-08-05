@@ -8,6 +8,8 @@ class Thread extends Model
 {
     protected $guarded = [];
 
+    protected $with = ['owner', 'channel'];
+
     // TODO: Add fillable fields
 
     protected static function boot()
@@ -16,6 +18,10 @@ class Thread extends Model
 
         static::addGlobalScope('replyCount', function ($builder) {
             $builder->withCount('replies');
+        });
+
+        static::addGlobalScope('owner', function ($builder) {
+            $builder->withCount('owner');
         });
     }
 
@@ -26,7 +32,7 @@ class Thread extends Model
 
     public function replies()
     {
-        return $this->hasMany(Reply::class)->withCount('favorites')->with('owner');
+        return $this->hasMany(Reply::class);
     }
 
     public function owner()
