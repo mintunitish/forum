@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            @foreach($threads as $thread)
+            @forelse($threads as $thread)
                 <div class="col-md-8 pb-3">
                     <div class="card shadow">
                         <div class="card-header pb-0 pt-2">
@@ -23,7 +23,9 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
+            @empty
+                <h2>No relevant threads to show!</h2>
+            @endforelse
         </div>
     </div>
 @endsection

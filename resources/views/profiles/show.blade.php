@@ -14,7 +14,7 @@
                     <div class="card-header">
                         <div class="level">
                             <span class="flex">
-                                <b>{{ $thread->title }}</b>
+                                <a href="{{ $thread->path() }}"><b>{{ $thread->title }}</b></a>
                             </span>
 
                             <span>{{ $thread->created_at->diffForHumans() }}</span>

@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8">
-                <div class="card">
+                <div class="card mb-4">
                     <div class="card-header">
                         <div class="level">
                             <span class="flex">
@@ -13,11 +13,13 @@
                                 </a>
                                 posted : <b>{{ $thread->title }}</b>
                             </span>
-                            <form action="{{ $thread->path() }}" method="post">
-                                {{ csrf_field() }}
-                                {{ method_field('DELETE') }}
-                                <button class="btn btn-link">Delete</button>
-                            </form>
+                            @can('delete', $thread)
+                                <form action="{{ $thread->path() }}" method="post">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                    <button class="btn btn-link">Delete</button>
+                                </form>
+                            @endcan
                         </div>
                     </div>
                     <div class="card-body">
@@ -63,3 +65,5 @@
 
     </div>
 @endsection
+
+
