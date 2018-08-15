@@ -2,10 +2,13 @@
 
 namespace App;
 
+use App\Traits\RecordActivity;
 use Illuminate\Database\Eloquent\Model;
 
 class Thread extends Model
 {
+    use RecordActivity;
+
     protected $guarded = [];
 
     protected $with = ['owner', 'channel'];
