@@ -6,10 +6,19 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <a href="/profiles/{{ $thread->owner->name }}">
-                            {{ $thread->owner->name }}
-                        </a>
-                        posted : <b>{{ $thread->title }}</b>
+                        <div class="level">
+                            <span class="flex">
+                                <a href="/profiles/{{ $thread->owner->name }}">
+                                    {{ $thread->owner->name }}
+                                </a>
+                                posted : <b>{{ $thread->title }}</b>
+                            </span>
+                            <form action="{{ $thread->path() }}" method="post">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+                                <button class="btn btn-link">Delete</button>
+                            </form>
+                        </div>
                     </div>
                     <div class="card-body">
                         {{ $thread->body }}
@@ -23,7 +32,8 @@
                 {{ $replies->links() }}
 
                 @guest
-                    <p class="text-center">Please <a href="{{ route('login') }}">SignIn</a> to participate in this discussion!
+                    <p class="text-center">Please <a href="{{ route('login') }}">SignIn</a> to participate in this
+                        discussion!
                     </p>
                 @else
                     <form method="post" action="{{ $thread->path().'/replies' }}">
@@ -43,7 +53,8 @@
                             This thread was published {{ $thread->created_at->diffForHumans() }} by
                             <a href="#">
                                 {{ $thread->owner->name }}
-                            </a>, and currently has {{ $thread->replies_count }} {{ str_plural('comment', $thread->replies_count) }}
+                            </a>, and currently
+                            has {{ $thread->replies_count }} {{ str_plural('comment', $thread->replies_count) }}
                         </p>
                     </div>
                 </div>
