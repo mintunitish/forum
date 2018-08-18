@@ -1,4 +1,4 @@
-<div class="card mb-3" style="margin-top: 10px;">
+<div class="card mb-3" id="reply-{{ $reply->id }}" style="margin-top: 10px;">
     <div class="card-header">
         <div class="level">
             <p class="flex" style="margin-bottom: 0;">
