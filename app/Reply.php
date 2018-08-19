@@ -14,7 +14,7 @@ class Reply extends Model
 
     protected $with = ['owner', 'favorites'];
 
-    // TODO: Add fillable fields
+    protected $appends = ['favoritesCount', 'isFavorited'];
 
     public function owner()
     {

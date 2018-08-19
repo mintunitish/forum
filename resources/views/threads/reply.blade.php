@@ -10,12 +10,7 @@
                 </p>
 
                 <div>
-                    <form action="/replies/{{ $reply->id }}/favorites" method="post">
-                        {{ csrf_field() }}
-                        <button type="submit" class="btn btn-sm btn-outline-info" {{ $reply->isFavorited() ? 'disabled' : '' }}>
-                            {{ $reply->isFavorited() ? 'Liked' : 'Like' }}
-                        </button>
-                    </form>
+                    <favorite :reply="{{ $reply }}"></favorite>
                 </div>
             </div>
         </div>

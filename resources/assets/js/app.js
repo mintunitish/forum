@@ -7,6 +7,8 @@
 
 require('./bootstrap');
 
+require('@fortawesome/fontawesome-free/js/all.min');
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -15,6 +17,7 @@ require('./bootstrap');
 
 Vue.component('flash', require('./components/Flash.vue'));
 Vue.component('reply', require('./components/Reply.vue'));
+Vue.component('favorite', require('./components/Favorite.vue'));
 
 const app = new Vue({
     el: '#app'
