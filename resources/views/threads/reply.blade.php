@@ -8,10 +8,11 @@
                     </a>
                     said {{ $reply->created_at->diffForHumans() }}...
                 </p>
-
-                <div>
-                    <favorite :reply="{{ $reply }}"></favorite>
-                </div>
+                @auth
+                    <div>
+                        <favorite :reply="{{ $reply }}"></favorite>
+                    </div>
+                @endauth
             </div>
         </div>
         <div class="card-body">
